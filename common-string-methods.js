@@ -28,6 +28,7 @@ Split the order into an array of items.
 Convert the total price to uppercase (e.g., "TOTAL: $20.50").
 
 
+
 Practice Problem #2
 
 Objective
@@ -69,35 +70,75 @@ Complete the following tasks and assign the results to the specified variables. 
 let inputString = "  Welcome to the Coding Bootcamp! Learn JavaScript today.  ";
 
 // 1. Searching
-let hasJavaScript; // Your code here
-let codingPosition; // Your code here
-let startsWithWelcome; // Your code here
-let endsWithToday; // Your code here
+let hasJavaScript = inputString.includes("JavaScript");
+let codingPosition = inputString.indexOf("Coding"); 
+let startsWithWelcome =inputString.trim().startsWith("Welcome"); 
+let endsWithToday = inputString.trim().endsWith("today."); 
 
 // 2. Transforming
-let lowercaseString; // Your code here
-let uppercaseString; // Your code here
-let trimmedString; // Your code here
-let replacedString; // Your code here
+let lowercaseString = inputString.toLowerCase();
+let uppercaseString = inputString.toUpperCase();
+let trimmedString = inputString.trim();
+let replacedString = inputString.replace("JavaScript", "coding");
+
 
 // 3. Breaking Apart
-let wordsArray; // Your code here
+let wordsArray = inputString.trim().split(" ");
+
 
 // 4. Retrieving
-let firstCharacter; // Your code here
-let extractedBootcamp; // Your code here
+let firstCharacter =  trimmedString.charAt(0); 
+let extractedBootcamp= trimmedString.slice(
+  trimmedString.indexOf("Bootcamp"),
+  trimmedString.indexOf("Bootcamp") + "Bootcamp".length
+);
+
 
 // Log all results
-console.log({
-  hasJavaScript,
-  codingPosition,
-  startsWithWelcome,
-  endsWithToday,
-  lowercaseString,
-  uppercaseString,
-  trimmedString,
-  replacedString,
-  wordsArray,
-  firstCharacter,
-  extractedBootcamp,
-});
+console.log("=== SEARCHING ===");
+console.log("Has JavaScript:", hasJavaScript);
+console.log("Coding Position:", codingPosition);
+console.log("Starts with 'Welcome':", startsWithWelcome);
+console.log("Ends with 'today.':", endsWithToday);
+
+console.log("\n=== TRANSFORMING ===");
+console.log("Lowercase:", lowercaseString);
+console.log("Uppercase:", uppercaseString);
+console.log("Trimmed:", trimmedString);
+console.log("Replaced:", replacedString);
+
+console.log("\n=== BREAKING APART ===");
+console.log("Words Array:", wordsArray);
+
+console.log("\n=== RETRIEVING ===");
+console.log("First Character:", firstCharacter);
+console.log("Extracted 'Bootcamp':", extractedBootcamp);
+
+/* Expected Output
+=== SEARCHING ===
+Has JavaScript: true
+Coding Position: 17
+Starts with 'Welcome': true
+Ends with 'today.': true
+
+=== TRANSFORMING ===
+Lowercase:   welcome to the coding bootcamp! learn javascript today.  
+Uppercase:   WELCOME TO THE CODING BOOTCAMP! LEARN JAVASCRIPT TODAY.  
+Trimmed: Welcome to the Coding Bootcamp! Learn JavaScript today.
+Replaced:   Welcome to the Coding Bootcamp! Learn coding today.  
+
+=== BREAKING APART ===
+Words Array: [
+  'Welcome',
+  'to',
+  'the',
+  'Coding',
+  'Bootcamp!',
+  'Learn',
+  'JavaScript',
+  'today.'
+]
+
+=== RETRIEVING ===
+First Character: W
+Extracted 'Bootcamp': Bootcamp */
